@@ -2,6 +2,9 @@ package api;
 
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 
 
 public class api {
@@ -47,6 +50,16 @@ public class api {
             	count++;
             }
             
+            String str = "C:\\Users\\User\\Desktop\\Words.txt";
+ 
+            List <String> list = Stream.of(str).map(w -> w.split("\\s+")).flatMap(Arrays::stream)
+                .collect(Collectors.toList());
+     
+            Map <String, Integer > wordCounter = list.stream()
+                .collect(Collectors.toMap(w -> w.toLowerCase(), w -> 1, Integer::sum));
+     
+            System.out.println("Frequency of words:" + wordCounter);
+
             // calculate the average at the end
             double average = 0;
             if (count > 0) {
@@ -62,40 +75,12 @@ public class api {
             	System.out.println("Number of paragraphs = "+ paraCount);
             	System.out.println("Total number of whitespaces = "+ whiteSpaceCount);
             
-            String line1, word = "";    
-            int count1 = 0, maxCount = 0;    
-            ArrayList<String> words1 = new ArrayList<String>();    
                 
-              
-              
-                
-            //Reads each line    
-            while((line = bufferedReader.readLine()) != null) {    
-                String string[] = line.toLowerCase().split("([,.\\s]+) ");    
-                //Adding all words generated in previous step into words    
-                for(String s : string){    
-                    words1.add(s);    
-                }    
-            }    
-                
-            //Determine the most repeated word in a file    
-            for(int i = 0; i < words1.size(); i++){    
-                count = 1;    
-                //Count each word in the file and store it in variable count    
-                for(int j = i+1; j < words1.size(); j++){    
-                    if(words1.get(i).equals(words1.get(j))){    
-                        count++;    
-                    }     
-                }    
-                //If maxCount is less than count then store value of count in maxCount     
-                //and corresponding word to variable word    
-                if(count > maxCount){    
-                    maxCount = count;    
-                    word = words1.get(i);    
-                }    
-            }    
-                
-            System.out.println("Most repeated word: " + word);    
+    }
+        }
+       
+        }
+        
             	
             String name = ("C:\\Users\\User\\Desktop\\Words.txt"); //arbitrary sentence
             
@@ -104,22 +89,11 @@ public class api {
             
             System.out.println("List of words:"+ numWords);
 } 
-
-            	
             }
             
 
             	 
             	}
-        }
-		}
-	}
-
-
-	
+        
 		
-		
-
-
 	
-
