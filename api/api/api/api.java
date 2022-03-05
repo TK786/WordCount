@@ -50,7 +50,7 @@ public class api {
             	count++;
             }
             
-            String str = "C:\\Users\\User\\Desktop\\Words.txt";
+            String str = ("C:\\Users\\User\\Desktop\\Words.txt");
  
             List <String> list = Stream.of(str).map(w -> w.split("\\s+")).flatMap(Arrays::stream)
                 .collect(Collectors.toList());
