@@ -13,6 +13,7 @@ public class api {
 		FileInputStream fileInputStream = new FileInputStream(file);
 		InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
 		try (BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
+            
             //initialise variables
             String line;
             int wordCount = 0;
@@ -61,11 +62,11 @@ public class api {
             	System.out.println("Number of paragraphs = "+ paraCount);
             	System.out.println("Total number of whitespaces = "+ whiteSpaceCount);
             
-            	String line1, word = "";    
+            String line1, word = "";    
             int count1 = 0, maxCount = 0;    
             ArrayList<String> words1 = new ArrayList<String>();    
                 
-            ;  
+              
               
                 
             //Reads each line    
